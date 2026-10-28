@@ -1,0 +1,279 @@
+@import url("fonts.css");
+
+:root {
+  /* Paleta: rosa antiguo sobre blush, como la invitación de la fiesta */
+  --wine: #7d4a72;
+  --wine-deep: #52305a;
+  --wine-soft: #a9739c;
+  --gold: #c9a26a;
+  --gold-deep: #a8824f;
+  --gold-light: #e3cfa0;
+  --cream: #f8ecf1;
+  --cream-deep: #f1dde5;
+  --cream-line: #e3c2d1;
+  --ink: #4a2f44;
+  --ink-soft: #8a6e86;
+  --teal: #5c7d6e;
+  --plum: #7a5a8c;
+  --good: #4a7a5c;
+  --good-soft: #e3efe6;
+  --bad: #a2504a;
+  --bad-soft: #f5e1de;
+
+  --opt-a-bg: var(--wine);
+  --opt-a-fg: #faf1f6;
+  --opt-b-bg: var(--gold-deep);
+  --opt-b-fg: #3a2c1c;
+  --opt-c-bg: var(--teal);
+  --opt-c-fg: #f1f6f2;
+  --opt-d-bg: var(--plum);
+  --opt-d-fg: #f6eef8;
+  --opt-e-bg: #b5704f;
+  --opt-e-fg: #fbf1e7;
+  --opt-f-bg: #5a7490;
+  --opt-f-fg: #eef3f7;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-script: "Alex Brush", "Brush Script MT", cursive;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --shadow-card: 0 14px 34px -14px rgba(82, 48, 90, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0;
+  text-wrap: balance;
+}
+p {
+  margin: 0;
+}
+button {
+  font-family: var(--font-body);
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+input {
+  font-family: var(--font-body);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--wine-soft);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Botones ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.9em 1.9em;
+  font-size: 1.05rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn-primary {
+  background: var(--wine);
+  color: #faf1f6;
+  box-shadow: var(--shadow-card);
+}
+.btn-primary:not(:disabled):hover {
+  background: var(--wine-soft);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--wine);
+  border: 2px solid var(--cream-line);
+}
+.btn-ghost:not(:disabled):hover {
+  border-color: var(--wine-soft);
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--ink);
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- Tarjetas ---------- */
+
+.card {
+  background: #fdf6f9;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--cream-line);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: var(--cream-deep);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.5em 1.1em;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--cream-line);
+}
+
+/* ---------- Opciones de respuesta ---------- */
+
+.option-shape {
+  width: 1.3em;
+  height: 1.3em;
+  flex: none;
+  display: inline-block;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 720px) {
+  .option-grid.cols-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  text-align: left;
+  border-radius: var(--radius-md);
+  padding: 1.1em 1.3em;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.12s ease, filter 0.12s ease, opacity 0.25s ease;
+}
+.option-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+.option-btn:disabled {
+  cursor: default;
+}
+.option-a {
+  background: var(--opt-a-bg);
+  color: var(--opt-a-fg);
+}
+.option-b {
+  background: var(--opt-b-bg);
+  color: var(--opt-b-fg);
+}
+.option-c {
+  background: var(--opt-c-bg);
+  color: var(--opt-c-fg);
+}
+.option-d {
+  background: var(--opt-d-bg);
+  color: var(--opt-d-fg);
+}
+.option-e {
+  background: var(--opt-e-bg);
+  color: var(--opt-e-fg);
+}
+.option-f {
+  background: var(--opt-f-bg);
+  color: var(--opt-f-fg);
+}
+.option-btn.is-dimmed {
+  opacity: 0.35;
+  filter: grayscale(0.4);
+}
+.option-btn.is-correct {
+  outline: 4px solid var(--good);
+  outline-offset: 3px;
+}
+.option-btn.is-wrong {
+  outline: 4px solid var(--bad);
+  outline-offset: 3px;
+}
+.option-btn.is-selected {
+  outline: 4px solid var(--ink);
+  outline-offset: 3px;
+}
+.option-btn .option-check {
+  margin-left: auto;
+  font-size: 1.3em;
+  line-height: 1;
+  opacity: 0;
+}
+.option-btn.is-selected .option-check {
+  opacity: 1;
+}
+
+/* ---------- Confeti ---------- */
+
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+  }
+}

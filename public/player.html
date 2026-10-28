@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Trivia de Alicia</title>
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/player.css" />
+  </head>
+  <body>
+    <div class="phone">
+      <!-- ===== JOIN ===== -->
+      <section id="view-join" class="view">
+        <p class="eyebrow">los</p>
+        <h1 class="join-80">80<span class="join-de">de</span></h1>
+        <p class="join-title">Alicia</p>
+        <p class="join-sub">Escribí tu nombre para sumarte a la trivia.</p>
+        <form id="join-form" class="join-form">
+          <input id="name-input" type="text" placeholder="Tu nombre" maxlength="24" autocomplete="off" required />
+          <button type="submit" class="btn btn-primary">Entrar al juego</button>
+        </form>
+        <p id="join-error" class="join-error" hidden></p>
+      </section>
+
+      <!-- ===== ESPERANDO ===== -->
+      <section id="view-waiting" class="view" hidden>
+        <p class="eyebrow">¡Hola, <span id="waiting-name"></span>!</p>
+        <h2 id="waiting-title" class="waiting-title">Ya estás dentro 🎉</h2>
+        <p id="waiting-sub" class="waiting-sub">Esperando a que el anfitrión arranque el juego…</p>
+        <div class="pulse-dot"></div>
+      </section>
+
+      <!-- ===== PREGUNTA ===== -->
+      <section id="view-question" class="view" hidden>
+        <div class="q-topbar">
+          <span class="chip tabular" id="q-progress">1 / 20</span>
+          <div class="timer-ring-wrap">
+            <svg class="timer-ring" viewBox="0 0 60 60" aria-hidden="true">
+              <circle class="timer-ring-bg" cx="30" cy="30" r="26"></circle>
+              <circle class="timer-ring-fill" id="q-timer-fill" cx="30" cy="30" r="26"></circle>
+            </svg>
+            <span class="timer-ring-number tabular" id="q-timer-number">10</span>
+          </div>
+        </div>
+        <h2 class="q-text" id="q-text">—</h2>
+        <p id="q-multi-hint" class="eyebrow" hidden>✅ Podés elegir más de una</p>
+        <div class="option-grid" id="q-options"></div>
+        <button id="multi-submit" type="button" class="btn btn-primary multi-submit" hidden disabled>Enviar respuesta</button>
+        <form id="word-form" class="word-form" hidden>
+          <input id="word-input" type="text" placeholder="Escribí una palabra" maxlength="24" autocomplete="off" required />
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        <p id="q-waiting-note" class="waiting-sub" hidden>Respuesta enviada. Esperando a los demás…</p>
+      </section>
+
+      <!-- ===== RESULTADO ===== -->
+      <section id="view-result" class="view" hidden>
+        <div id="result-badge" class="result-badge">—</div>
+        <p id="result-points" class="result-points"></p>
+        <p class="result-score-label">Tu puntaje total</p>
+        <p id="result-score" class="result-score tabular">0</p>
+      </section>
+
+      <!-- ===== FINAL ===== -->
+      <section id="view-final" class="view" hidden>
+        <p class="eyebrow">¡Se terminó la trivia!</p>
+        <h2 class="final-title">Tu resultado</h2>
+        <p id="final-rank" class="final-rank">—</p>
+        <p id="final-score" class="final-score tabular">0</p>
+        <p class="final-note">Gracias por festejar con Alicia 💛</p>
+      </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/shapes.js"></script>
+    <script src="/js/confetti.js"></script>
+    <script src="/js/player.js"></script>
+  </body>
+</html>

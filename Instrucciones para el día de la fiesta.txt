@@ -1,0 +1,59 @@
+TRIVIA DE LOS 80 AÑOS DE ALICIA — INSTRUCCIONES
+=================================================
+
+NO HACE FALTA INTERNET. El juego funciona todo dentro de una misma red local.
+
+EL SALÓN TIENE WIFI - usá esa. Pasos:
+  1. Pedí la clave de esa WiFi CON ANTICIPACIÓN (no el día de la fiesta).
+  2. Conectá la notebook a esa WiFi.
+  3. Los invitados se conectan a esa misma WiFi desde sus celulares
+     (aunque no tenga internet real no importa - solo hace falta que
+     todos estén en la misma red).
+
+¡OJO! PROBALO ANTES, no confíes a ciegas:
+  Algunas WiFi de salones/eventos tienen "aislamiento de clientes"
+  activado (para que los celulares conectados no se vean entre sí, por
+  seguridad). Si esa WiFi del salón lo tiene activado, el juego NO VA A
+  FUNCIONAR aunque todos estén conectados a la misma red.
+
+  Por eso, ANTES del día de la fiesta:
+  1. Conectá la notebook a la WiFi real del salón (con la clave que te
+     dieron) y fijate qué link de "Invitados" te muestra.
+  2. Conectá un celular a esa misma WiFi y probá entrar a ese link.
+  3. Si entra y podés jugar una pregunta de prueba: todo bien, listo.
+  4. Si el celular NO LLEGA a cargar la página (se queda cargando o da
+     error): esa WiFi tiene aislamiento activado. Plan B: conseguí un
+     router de viaje chiquito (tipo TP-Link o GL.iNet, se consiguen en
+     casas de electrónica, cuestan poco) y armá tu propia red WiFi con
+     él - no hace falta que tenga internet conectado, solo que cree una
+     red propia. Conectá la notebook y que los invitados se conecten a
+     esa red en vez de la del salón.
+
+PASO A PASO PARA JUGAR
+-----------------------
+  1. En la notebook, hacé doble clic en "Iniciar juego.bat" (en esta misma carpeta).
+     Se va a abrir una ventana negra — dejala abierta todo el juego, no la cierres.
+  2. Abrí un navegador en la notebook y entrá a la dirección que dice
+     "Anfitrión (pantalla grande)" que aparece en esa ventana negra.
+     Conectá la notebook a un proyector/TV si querés que todos vean esa pantalla.
+  3. Los invitados escanean el código QR que aparece ahí, o escriben en su
+     celular la dirección que dice "Invitados" — ahí ponen su nombre y entran.
+  4. Cuando ya se sumaron los invitados que quieras, apretá "Iniciar juego".
+  5. Cada pregunta dura 15 segundos. Apenas responden todos (o se acaba el
+     tiempo) se revela sola la respuesta correcta y los puntajes.
+  6. Apretá "Siguiente pregunta" para continuar. Al final se muestra el
+     podio y el ranking completo.
+
+SI ALGO SE TRABA
+-----------------
+  - Si un invitado se queda sin señal o recarga la página, puede volver a
+    entrar con el mismo nombre y sigue con su puntaje intacto.
+  - Si querés arrancar todo de cero, apretá "Jugar de nuevo" al final,
+    o cerrá la ventana negra y volvé a hacer doble clic en "Iniciar juego.bat".
+
+IMPORTANTE — FALTA COMPLETAR
+------------------------------
+Todavía no están cargadas las respuestas correctas de las 20 preguntas
+(se perdieron al pegar el texto). Mientras no se completen, el juego
+funciona igual pero NO reparte puntos. Avisale a quien armó el juego
+con Claude para completarlas antes de la fiesta.

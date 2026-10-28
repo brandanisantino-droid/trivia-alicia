@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trivia de Alicia — Anfitrión</title>
+    <link rel="stylesheet" href="/css/theme.css" />
+    <link rel="stylesheet" href="/css/host.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <!-- ===== LOBBY ===== -->
+      <section id="view-lobby" class="view">
+        <div class="invitation-frame">
+          <div class="lobby-grid">
+            <div class="lobby-hero">
+              <p class="eyebrow">los</p>
+              <h1 class="hero-80">80<span class="hero-de">de</span></h1>
+              <p class="hero-name">Alicia</p>
+              <h2 class="lobby-title">Trivia de cumpleaños</h2>
+            </div>
+            <div class="lobby-steps">
+              <div class="step-card card">
+                <span class="step-num">1</span>
+                <p class="step-label">Conectate al WiFi</p>
+                <img id="wifi-qr-img" alt="Código QR para conectarse al WiFi" />
+                <p class="step-detail" id="wifi-detail">cargando…</p>
+              </div>
+              <div class="step-card card">
+                <span class="step-num">2</span>
+                <p class="step-label">Entrá al juego</p>
+                <img id="qr-img" alt="Código QR para unirse al juego" />
+                <p class="step-detail chip" id="join-url">cargando enlace…</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lobby-footer">
+          <div class="players-panel">
+            <p class="players-count"><span id="players-count-num" class="tabular">0</span> invitados conectados</p>
+            <div id="players-list" class="players-list"></div>
+          </div>
+          <button id="btn-start" class="btn btn-primary btn-start" disabled>Iniciar juego</button>
+        </div>
+      </section>
+
+      <!-- ===== PREGUNTA ===== -->
+      <section id="view-question" class="view" hidden>
+        <div class="q-topbar">
+          <span class="chip tabular" id="q-progress">Pregunta 1 de 20</span>
+          <span class="chip tabular" id="q-answered">0 / 0 respondieron</span>
+        </div>
+        <div class="timer-ring-wrap">
+          <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="timer-ring-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="timer-ring-fill" id="q-timer-fill" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <span class="timer-ring-number tabular" id="q-timer-number">10</span>
+        </div>
+        <h2 class="q-text" id="q-text">—</h2>
+        <p id="q-multi-hint" class="eyebrow" hidden>✅ Se puede elegir más de una opción</p>
+        <div class="option-grid cols-4" id="q-options"></div>
+        <div class="word-panel" id="q-word-panel" hidden>
+          <div class="word-icon">✍️</div>
+          <p>Todos están escribiendo su palabra desde el celular…</p>
+        </div>
+      </section>
+
+      <!-- ===== REVELACIÓN ===== -->
+      <section id="view-reveal" class="view" hidden>
+        <div class="q-topbar">
+          <span class="chip tabular" id="r-progress">Pregunta 1 de 20</span>
+        </div>
+        <h2 class="q-text" id="r-text">—</h2>
+        <div class="option-grid cols-4" id="r-options"></div>
+        <div class="word-ranking" id="r-word-ranking" hidden></div>
+        <p id="r-pending-note" class="pending-note" hidden>⚠ Todavía no se definió la respuesta correcta de esta pregunta — no se asignaron puntos.</p>
+        <div class="reveal-footer">
+          <button id="btn-show-standings" class="btn btn-ghost">Ver ranking ahora</button>
+        </div>
+        <p class="auto-advance-hint">Pasa solo en unos segundos — no hace falta tocar nada</p>
+      </section>
+
+      <!-- ===== RANKING ENTRE PREGUNTAS ===== -->
+      <section id="view-standings" class="view" hidden>
+        <p class="eyebrow" id="standings-progress">Después de la pregunta 1 de 20</p>
+        <h1 class="final-title">¿Cómo va la cosa?</h1>
+        <div class="full-ranking standings-ranking" id="standings-ranking"></div>
+        <button id="btn-next" class="btn btn-ghost">Siguiente pregunta ahora</button>
+        <p class="auto-advance-hint">Pasa sola en unos segundos — no hace falta tocar nada</p>
+      </section>
+
+      <!-- ===== FINAL ===== -->
+      <section id="view-final" class="view" hidden>
+        <p class="eyebrow">¡Así quedó la tabla!</p>
+        <h1 class="final-title">Ranking final</h1>
+        <div class="podium" id="podium"></div>
+        <div class="full-ranking" id="full-ranking"></div>
+        <button id="btn-restart" class="btn btn-ghost">Jugar de nuevo</button>
+      </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/shapes.js"></script>
+    <script src="/js/confetti.js"></script>
+    <script src="/js/host.js"></script>
+  </body>
+</html>
