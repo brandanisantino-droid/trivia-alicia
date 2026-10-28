@@ -181,6 +181,22 @@ body {
   font-size: 1.05rem;
   padding: 1em 1.1em;
 }
+#q-options .option-btn.is-picked {
+  background: var(--ink-soft);
+  color: #fdf6f9;
+  opacity: 1;
+  filter: none;
+}
+#q-options .option-btn.is-correct {
+  background: var(--good);
+  color: #fff;
+  outline: none;
+}
+#q-options .option-btn.is-wrong {
+  background: var(--bad);
+  color: #fff;
+  outline: none;
+}
 #q-multi-hint {
   margin-bottom: 14px;
 }

@@ -16,6 +16,7 @@ const STORAGE_KEY = "alicia80_player";
 let myPlayerId = null;
 let myScore = 0;
 let answeredThisRound = false;
+let gotPersonalResult = false;
 let timerRaf = null;
 
 function escapeHtml(s) {
@@ -95,9 +96,20 @@ function lockOptions(pickedIndex) {
   const grid = document.getElementById("q-options");
   [...grid.children].forEach((btn, i) => {
     btn.disabled = true;
-    if (i !== pickedIndex) btn.classList.add("is-dimmed");
+    if (i === pickedIndex) btn.classList.add("is-picked");
+    else btn.classList.add("is-dimmed");
   });
   document.getElementById("q-waiting-note").hidden = false;
+}
+
+function revealOptionColors(correctIndex, pickedIndex) {
+  const grid = document.getElementById("q-options");
+  [...grid.children].forEach((btn, i) => {
+    btn.classList.remove("is-dimmed", "is-picked");
+    if (i === correctIndex) btn.classList.add("is-correct");
+    else if (i === pickedIndex) btn.classList.add("is-wrong");
+    else btn.classList.add("is-dimmed");
+  });
 }
 
 // ---------- Pregunta de selección múltiple ----------
@@ -170,6 +182,7 @@ wordForm.addEventListener("submit", (e) => {
 socket.on("game:question", (q) => {
   cancelAnimationFrame(timerRaf);
   answeredThisRound = false;
+  gotPersonalResult = false;
   showView("question");
   document.getElementById("q-progress").textContent = `${q.index + 1} / ${q.total}`;
   document.getElementById("q-text").textContent = q.text;
@@ -228,35 +241,49 @@ socket.on("game:answeredMulti", ({ selected }) => {
 socket.on("game:yourResult", (r) => {
   cancelAnimationFrame(timerRaf);
   myScore = r.totalScore;
-  const badge = document.getElementById("result-badge");
-  const points = document.getElementById("result-points");
 
-  badge.classList.remove("good", "bad", "pending");
-  if (!r.answered) {
-    badge.textContent = "¡Se acabó el tiempo!";
-    badge.classList.add("bad");
-    points.textContent = "No llegaste a responder.";
-  } else if (r.pending) {
-    badge.textContent = "Respuesta registrada";
-    badge.classList.add("pending");
-    points.textContent = "Todavía no se definió la respuesta correcta.";
-  } else if (r.correct) {
-    badge.textContent = "¡Correcto! 🎉";
-    badge.classList.add("good");
-    points.textContent = `+${r.points} puntos`;
-  } else {
-    badge.textContent = "Esta vez no";
-    badge.classList.add("bad");
-    points.textContent = "0 puntos";
+  const grid = document.getElementById("q-options");
+  const canColor = !views.question.hidden && !grid.hidden && !r.pending;
+  if (canColor) {
+    gotPersonalResult = true;
+    document.getElementById("q-waiting-note").hidden = true;
+    revealOptionColors(r.correctIndex, r.picked);
   }
 
-  document.getElementById("result-score").textContent = myScore;
-  showView("result");
+  const showResult = () => {
+    const badge = document.getElementById("result-badge");
+    const points = document.getElementById("result-points");
+
+    badge.classList.remove("good", "bad", "pending");
+    if (!r.answered) {
+      badge.textContent = "¡Se acabó el tiempo!";
+      badge.classList.add("bad");
+      points.textContent = "No llegaste a responder.";
+    } else if (r.pending) {
+      badge.textContent = "Respuesta registrada";
+      badge.classList.add("pending");
+      points.textContent = "Todavía no se definió la respuesta correcta.";
+    } else if (r.correct) {
+      badge.textContent = "¡Correcto! 🎉";
+      badge.classList.add("good");
+      points.textContent = `+${r.points} puntos`;
+    } else {
+      badge.textContent = "Esta vez no";
+      badge.classList.add("bad");
+      points.textContent = "0 puntos";
+    }
+
+    document.getElementById("result-score").textContent = myScore;
+    showView("result");
+  };
+
+  if (canColor) setTimeout(showResult, 1800);
+  else showResult();
 });
 
 // Si llegamos (o nos reconectamos) justo durante una revelación sin resultado propio.
 socket.on("game:reveal", () => {
-  if (views.question.hidden) return;
+  if (views.question.hidden || gotPersonalResult) return;
   cancelAnimationFrame(timerRaf);
   showWaiting("Mirá la pantalla grande para ver el resultado 👀");
 });

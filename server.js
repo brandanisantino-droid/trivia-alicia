@@ -16,7 +16,7 @@ const TIME_PER_QUESTION_MS = 15000; // 15 segundos por pregunta de opción múlt
 const WORD_ROUND_DURATION_MS = 30000; // más tiempo para escribir una palabra
 const MULTI_ROUND_DURATION_MS = 20000; // más tiempo para elegir varias opciones
 const REVEAL_PAUSE_MS = 4000; // cuánto se muestra la respuesta correcta antes de pasar al ranking
-const STANDINGS_PAUSE_MS = 3000; // cuánto se muestra el ranking antes de la siguiente pregunta
+const STANDINGS_PAUSE_MS = 4000; // cuánto se muestra el ranking antes de la siguiente pregunta
 
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
