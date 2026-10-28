@@ -1,59 +1,54 @@
 TRIVIA DE LOS 80 AÑOS DE ALICIA — INSTRUCCIONES
 =================================================
 
-NO HACE FALTA INTERNET. El juego funciona todo dentro de una misma red local.
+EL JUEGO YA ESTÁ ONLINE. No hace falta prender la notebook con el
+servidor ni nada técnico — funciona desde cualquier celular/compu con
+internet (WiFi del salón o datos móviles, cualquiera de las dos sirve).
 
-EL SALÓN TIENE WIFI - usá esa. Pasos:
-  1. Pedí la clave de esa WiFi CON ANTICIPACIÓN (no el día de la fiesta).
-  2. Conectá la notebook a esa WiFi.
-  3. Los invitados se conectan a esa misma WiFi desde sus celulares
-     (aunque no tenga internet real no importa - solo hace falta que
-     todos estén en la misma red).
-
-¡OJO! PROBALO ANTES, no confíes a ciegas:
-  Algunas WiFi de salones/eventos tienen "aislamiento de clientes"
-  activado (para que los celulares conectados no se vean entre sí, por
-  seguridad). Si esa WiFi del salón lo tiene activado, el juego NO VA A
-  FUNCIONAR aunque todos estén conectados a la misma red.
-
-  Por eso, ANTES del día de la fiesta:
-  1. Conectá la notebook a la WiFi real del salón (con la clave que te
-     dieron) y fijate qué link de "Invitados" te muestra.
-  2. Conectá un celular a esa misma WiFi y probá entrar a ese link.
-  3. Si entra y podés jugar una pregunta de prueba: todo bien, listo.
-  4. Si el celular NO LLEGA a cargar la página (se queda cargando o da
-     error): esa WiFi tiene aislamiento activado. Plan B: conseguí un
-     router de viaje chiquito (tipo TP-Link o GL.iNet, se consiguen en
-     casas de electrónica, cuestan poco) y armá tu propia red WiFi con
-     él - no hace falta que tenga internet conectado, solo que cree una
-     red propia. Conectá la notebook y que los invitados se conecten a
-     esa red en vez de la del salón.
+LINKS FIJOS (no cambian nunca):
+  - Anfitrión (pantalla grande / proyector):
+    https://trivia-alicia.onrender.com/anfitrion
+  - Invitados (para jugar desde el celular):
+    https://trivia-alicia.onrender.com/
 
 PASO A PASO PARA JUGAR
 -----------------------
-  1. En la notebook, hacé doble clic en "Iniciar juego.bat" (en esta misma carpeta).
-     Se va a abrir una ventana negra — dejala abierta todo el juego, no la cierres.
-  2. Abrí un navegador en la notebook y entrá a la dirección que dice
-     "Anfitrión (pantalla grande)" que aparece en esa ventana negra.
-     Conectá la notebook a un proyector/TV si querés que todos vean esa pantalla.
-  3. Los invitados escanean el código QR que aparece ahí, o escriben en su
-     celular la dirección que dice "Invitados" — ahí ponen su nombre y entran.
-  4. Cuando ya se sumaron los invitados que quieras, apretá "Iniciar juego".
-  5. Cada pregunta dura 15 segundos. Apenas responden todos (o se acaba el
-     tiempo) se revela sola la respuesta correcta y los puntajes.
-  6. Apretá "Siguiente pregunta" para continuar. Al final se muestra el
-     podio y el ranking completo.
+  1. Unos 5 minutos antes de arrancar, abrí el link de "Anfitrión" en la
+     notebook/compu conectada al proyector. Esto "despierta" el
+     servidor (si nadie lo usó en un rato, tarda un poquito la primera
+     vez en cargar — por eso conviene abrirlo con anticipación).
+  2. Los invitados escanean el QR que aparece en esa pantalla (el QR
+     "2 - Entrá al juego"), o escriben la dirección de arriba en su
+     celular. Ahí ponen su nombre y entran.
+     (El QR "1 - Conectate al WiFi" es por si el salón tiene WiFi y
+     querés que la usen para no gastar datos — es opcional, con datos
+     móviles también funciona perfecto.)
+  3. Cuando ya se sumaron los invitados que quieras, apretá "Iniciar
+     juego" en la pantalla de anfitrión.
+  4. El juego anda solo: cada pregunta dura 15 segundos, se revela sola
+     la respuesta correcta en verde, se muestra el ranking, y pasa a la
+     siguiente — no hace falta tocar nada. Si en algún momento querés
+     adelantar más rápido, hay un botón de "saltar" discreto.
+  5. Al final se muestra el podio y el ranking completo con confeti.
 
 SI ALGO SE TRABA
 -----------------
-  - Si un invitado se queda sin señal o recarga la página, puede volver a
-    entrar con el mismo nombre y sigue con su puntaje intacto.
-  - Si querés arrancar todo de cero, apretá "Jugar de nuevo" al final,
-    o cerrá la ventana negra y volvé a hacer doble clic en "Iniciar juego.bat".
+  - Si un invitado se queda sin señal o recarga la página, puede volver
+    a entrar con el mismo nombre y sigue con su puntaje intacto.
+  - Si querés arrancar todo de cero, apretá "Jugar de nuevo" al final
+    de la partida.
+  - Si la pantalla de anfitrión tarda en cargar la primera vez que la
+    abrís, es normal (el servidor gratuito "se duerme" si nadie lo usó
+    en un rato) — esperá medio minuto, es solo la primera carga del día.
 
-IMPORTANTE — FALTA COMPLETAR
-------------------------------
-Todavía no están cargadas las respuestas correctas de las 20 preguntas
-(se perdieron al pegar el texto). Mientras no se completen, el juego
-funciona igual pero NO reparte puntos. Avisale a quien armó el juego
-con Claude para completarlas antes de la fiesta.
+PLAN B (si por algún motivo no hay internet en el salón)
+-----------------------------------------------------------
+  Queda disponible la versión local de respaldo: hacé doble clic en
+  "Iniciar juego.bat" (en esta misma carpeta) y usá los links que
+  muestre esa ventana — en ese caso sí hace falta que todos estén
+  conectados a la misma WiFi (probalo con un celular antes de confiar
+  en esta opción, por las dudas esa WiFi tenga "aislamiento de
+  clientes" activado).
+
+Las 25 preguntas ya tienen su respuesta correcta cargada — el juego
+reparte puntos en todas.

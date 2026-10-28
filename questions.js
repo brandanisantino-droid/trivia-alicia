@@ -36,7 +36,7 @@ module.exports = [
   },
   {
     text: "¿Cuántos años trabajó en el Ministerio de Transporte y Economía?",
-    options: ["32", "41", "34", "31"],
+    options: ["32", "43", "34", "31"],
     correctIndex: 1,
   },
   {
@@ -45,10 +45,9 @@ module.exports = [
     correctIndex: 3,
   },
   {
-    // TODO: falta marcar cuál es la correcta.
     text: "¿En qué país pasó la Navidad junto a los Vadiveloo?",
     options: ["Puerto Rico", "Venezuela", "Honduras", "Colombia"],
-    correctIndex: null,
+    correctIndex: 1,
   },
   {
     text: "¿Cuál es la habilidad de la abuela Alicia?",
@@ -88,10 +87,9 @@ module.exports = [
     correctIndex: 3,
   },
   {
-    // TODO: falta marcar cuál es la correcta (no vino en negrita).
     text: "¿Qué no puede faltar en la cartera de Alicia?",
     options: ["Pañuelitos", "Pastillero", "Anteojos", "Maquillaje"],
-    correctIndex: null,
+    correctIndex: 0,
   },
   {
     text: "Cuando está sola en su casa, la encontramos...",
