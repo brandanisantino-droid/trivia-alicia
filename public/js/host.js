@@ -162,7 +162,7 @@ socket.on("game:reveal", (data) => {
     if (countEl) countEl.textContent = data.counts[i] ?? 0;
     if (!data.pending && !data.isPoll) {
       if (i === data.correctIndex) btn.classList.add("is-correct");
-      else btn.classList.add("is-dimmed");
+      else btn.classList.add("is-hidden-reveal");
     }
   });
 
