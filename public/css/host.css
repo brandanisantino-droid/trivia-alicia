@@ -256,18 +256,17 @@ body {
   cursor: default;
   align-items: flex-start;
 }
-#r-options .option-btn.is-hidden-reveal {
-  display: none;
+#r-options .option-btn.is-gray-reveal {
+  background: var(--ink-soft);
+  color: #fdf6f9;
+  outline: none;
+  filter: none;
+  opacity: 1;
 }
 #r-options .option-btn.is-correct {
-  grid-column: 1 / -1;
   background: var(--good);
   color: #fff;
   outline: none;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
 }
 .opt-count {
   margin-left: auto;
