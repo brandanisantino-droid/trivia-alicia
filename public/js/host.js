@@ -88,15 +88,16 @@ socket.on("game:showStandings", (data) => {
 let timerRaf = null;
 let miniTimerRaf = null;
 const MINI_RING_CIRCUMFERENCE = 163.4;
+const BIG_RING_CIRCUMFERENCE = 339.3;
 
-function tickMiniTimer(fillEl, numberEl, startAt, duration) {
+function tickMiniTimer(fillEl, numberEl, startAt, duration, circumference = MINI_RING_CIRCUMFERENCE) {
   cancelAnimationFrame(miniTimerRaf);
   if (!fillEl || !numberEl || !startAt || !duration) return;
   function tick() {
     const elapsed = Date.now() - startAt;
     const frac = Math.max(0, Math.min(1, 1 - elapsed / duration));
     const secondsLeft = Math.max(0, Math.ceil((duration - elapsed) / 1000));
-    fillEl.style.strokeDashoffset = String(MINI_RING_CIRCUMFERENCE * (1 - frac));
+    fillEl.style.strokeDashoffset = String(circumference * (1 - frac));
     numberEl.textContent = secondsLeft;
     if (frac > 0) miniTimerRaf = requestAnimationFrame(tick);
   }
@@ -196,7 +197,7 @@ socket.on("game:reveal", (data) => {
     note.hidden = true;
   }
 
-  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration);
+  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration, BIG_RING_CIRCUMFERENCE);
 });
 
 socket.on("game:revealWords", (data) => {
@@ -226,7 +227,7 @@ socket.on("game:revealWords", (data) => {
     ranking.innerHTML = '<p class="pending-note">Nadie llegó a escribir una palabra.</p>';
   }
 
-  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration);
+  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration, BIG_RING_CIRCUMFERENCE);
 });
 
 // ---------- Final ----------

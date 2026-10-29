@@ -71,22 +71,20 @@
       <section id="view-reveal" class="view" hidden>
         <div class="q-topbar">
           <span class="chip tabular" id="r-progress">Pregunta 1 de 20</span>
+          <span class="chip tabular">Sigue en…</span>
+        </div>
+        <div class="timer-ring-wrap">
+          <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="timer-ring-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="timer-ring-fill" id="r-timer-fill" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <span class="timer-ring-number tabular" id="r-timer-number">4</span>
         </div>
         <h2 class="q-text" id="r-text">—</h2>
         <div class="option-grid cols-4" id="r-options"></div>
         <div class="word-ranking" id="r-word-ranking" hidden></div>
         <p id="r-pending-note" class="pending-note" hidden>⚠ Todavía no se definió la respuesta correcta de esta pregunta — no se asignaron puntos.</p>
         <div class="reveal-footer">
-          <div class="mini-timer">
-            <span class="mini-timer-label">Sigue en</span>
-            <div class="mini-timer-ring-wrap">
-              <svg class="mini-timer-ring" viewBox="0 0 60 60" aria-hidden="true">
-                <circle class="mini-timer-ring-bg" cx="30" cy="30" r="26"></circle>
-                <circle class="mini-timer-ring-fill" id="r-timer-fill" cx="30" cy="30" r="26"></circle>
-              </svg>
-              <span class="mini-timer-ring-number tabular" id="r-timer-number">4</span>
-            </div>
-          </div>
           <button id="btn-show-standings" class="btn btn-ghost">Ver ranking ahora</button>
         </div>
       </section>
