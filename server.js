@@ -124,14 +124,6 @@ function startQuestion(index) {
   state.timer = setTimeout(() => revealQuestion(), state.duration + 300);
 }
 
-function maybeAutoReveal() {
-  if (state.status !== "question") return;
-  const connectedCount = Array.from(players.values()).filter((p) => p.connected).length;
-  if (connectedCount > 0 && state.answers.size >= connectedCount) {
-    revealQuestion();
-  }
-}
-
 function revealQuestion() {
   if (state.status !== "question") return;
   clearTimeout(state.timer);
@@ -365,7 +357,6 @@ io.on("connection", (socket) => {
 
     const connectedCount = Array.from(players.values()).filter((p) => p.connected).length;
     io.to("host").emit("game:answerProgress", { answeredCount: state.answers.size, totalPlayers: connectedCount });
-    maybeAutoReveal();
   });
 
   socket.on("player:answerMulti", ({ selected }) => {
@@ -381,7 +372,6 @@ io.on("connection", (socket) => {
 
     const connectedCount = Array.from(players.values()).filter((p) => p.connected).length;
     io.to("host").emit("game:answerProgress", { answeredCount: state.answers.size, totalPlayers: connectedCount });
-    maybeAutoReveal();
   });
 
   socket.on("player:answerWord", ({ word }) => {
@@ -395,7 +385,6 @@ io.on("connection", (socket) => {
 
     const connectedCount = Array.from(players.values()).filter((p) => p.connected).length;
     io.to("host").emit("game:answerProgress", { answeredCount: state.answers.size, totalPlayers: connectedCount });
-    maybeAutoReveal();
   });
 
   socket.on("host:join", () => {
