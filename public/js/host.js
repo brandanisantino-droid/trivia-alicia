@@ -80,11 +80,28 @@ socket.on("game:showStandings", (data) => {
   document.getElementById("standings-progress").textContent = `Después de la pregunta ${data.index + 1} de ${data.total}`;
   renderRanking(document.getElementById("standings-ranking"), data.leaderboard, { limit: STANDINGS_TOP_N });
   setNextButtonLabel(data.index, data.total);
+  tickMiniTimer(document.getElementById("s-timer-fill"), document.getElementById("s-timer-number"), data.standingsAt, data.standingsDuration);
 });
 
 // ---------- Pregunta ----------
 
 let timerRaf = null;
+let miniTimerRaf = null;
+const MINI_RING_CIRCUMFERENCE = 163.4;
+
+function tickMiniTimer(fillEl, numberEl, startAt, duration) {
+  cancelAnimationFrame(miniTimerRaf);
+  if (!fillEl || !numberEl || !startAt || !duration) return;
+  function tick() {
+    const elapsed = Date.now() - startAt;
+    const frac = Math.max(0, Math.min(1, 1 - elapsed / duration));
+    const secondsLeft = Math.max(0, Math.ceil((duration - elapsed) / 1000));
+    fillEl.style.strokeDashoffset = String(MINI_RING_CIRCUMFERENCE * (1 - frac));
+    numberEl.textContent = secondsLeft;
+    if (frac > 0) miniTimerRaf = requestAnimationFrame(tick);
+  }
+  tick();
+}
 
 function renderOptionsStatic(container, options, { withCounts } = {}) {
   container.innerHTML = "";
@@ -112,6 +129,7 @@ function setNextButtonLabel(index, total) {
 
 socket.on("game:question", (q) => {
   cancelAnimationFrame(timerRaf);
+  cancelAnimationFrame(miniTimerRaf);
   showView("question");
   document.getElementById("q-progress").textContent = `Pregunta ${q.index + 1} de ${q.total}`;
   document.getElementById("q-text").textContent = q.text;
@@ -177,6 +195,8 @@ socket.on("game:reveal", (data) => {
   } else {
     note.hidden = true;
   }
+
+  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration);
 });
 
 socket.on("game:revealWords", (data) => {
@@ -205,6 +225,8 @@ socket.on("game:revealWords", (data) => {
   if (data.ranking.length === 0) {
     ranking.innerHTML = '<p class="pending-note">Nadie llegó a escribir una palabra.</p>';
   }
+
+  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration);
 });
 
 // ---------- Final ----------

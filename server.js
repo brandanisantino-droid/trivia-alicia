@@ -154,6 +154,8 @@ function revealQuestion() {
       answeredCount,
       totalPlayers: Array.from(players.values()).filter((p) => p.connected).length,
       leaderboard: publicPlayerList(),
+      revealAt: Date.now(),
+      revealDuration: REVEAL_PAUSE_MS,
     });
     scheduleStandings();
     return;
@@ -181,6 +183,8 @@ function revealQuestion() {
       answeredCount,
       totalPlayers: Array.from(players.values()).filter((p) => p.connected).length,
       leaderboard: publicPlayerList(),
+      revealAt: Date.now(),
+      revealDuration: REVEAL_PAUSE_MS,
     });
     scheduleStandings();
     return;
@@ -243,6 +247,8 @@ function revealQuestion() {
     answeredCount,
     totalPlayers: Array.from(players.values()).filter((p) => p.connected).length,
     leaderboard: publicPlayerList(),
+    revealAt: Date.now(),
+    revealDuration: REVEAL_PAUSE_MS,
   });
   scheduleStandings();
 }
@@ -273,6 +279,8 @@ function showStandings() {
     index: state.currentIndex,
     total: TOTAL_QUESTIONS,
     leaderboard: publicPlayerList(),
+    standingsAt: Date.now(),
+    standingsDuration: STANDINGS_PAUSE_MS,
   });
   state.timer = setTimeout(() => advanceQuestion(), STANDINGS_PAUSE_MS);
 }

@@ -355,12 +355,66 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 24px;
   margin-top: 24px;
 }
 .auto-advance-hint {
   text-align: center;
   color: var(--ink-soft);
   font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.mini-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.mini-timer-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--wine-soft);
+}
+.mini-timer-ring-wrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
+}
+.mini-timer-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.mini-timer-ring-bg {
+  fill: none;
+  stroke: var(--cream-deep);
+  stroke-width: 6;
+}
+.mini-timer-ring-fill {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 163.4;
+  stroke-dashoffset: 0;
+  transition: stroke 0.2s ease;
+}
+.mini-timer-ring-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+#view-standings .mini-timer {
   margin-top: 10px;
 }
 

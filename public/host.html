@@ -77,9 +77,18 @@
         <div class="word-ranking" id="r-word-ranking" hidden></div>
         <p id="r-pending-note" class="pending-note" hidden>⚠ Todavía no se definió la respuesta correcta de esta pregunta — no se asignaron puntos.</p>
         <div class="reveal-footer">
+          <div class="mini-timer">
+            <span class="mini-timer-label">Sigue en</span>
+            <div class="mini-timer-ring-wrap">
+              <svg class="mini-timer-ring" viewBox="0 0 60 60" aria-hidden="true">
+                <circle class="mini-timer-ring-bg" cx="30" cy="30" r="26"></circle>
+                <circle class="mini-timer-ring-fill" id="r-timer-fill" cx="30" cy="30" r="26"></circle>
+              </svg>
+              <span class="mini-timer-ring-number tabular" id="r-timer-number">4</span>
+            </div>
+          </div>
           <button id="btn-show-standings" class="btn btn-ghost">Ver ranking ahora</button>
         </div>
-        <p class="auto-advance-hint">Pasa solo en unos segundos — no hace falta tocar nada</p>
       </section>
 
       <!-- ===== RANKING ENTRE PREGUNTAS ===== -->
@@ -87,8 +96,17 @@
         <p class="eyebrow" id="standings-progress">Después de la pregunta 1 de 20</p>
         <h1 class="final-title">¿Cómo va la cosa?</h1>
         <div class="full-ranking standings-ranking" id="standings-ranking"></div>
+        <div class="mini-timer">
+          <span class="mini-timer-label">Siguiente pregunta en</span>
+          <div class="mini-timer-ring-wrap">
+            <svg class="mini-timer-ring" viewBox="0 0 60 60" aria-hidden="true">
+              <circle class="mini-timer-ring-bg" cx="30" cy="30" r="26"></circle>
+              <circle class="mini-timer-ring-fill" id="s-timer-fill" cx="30" cy="30" r="26"></circle>
+            </svg>
+            <span class="mini-timer-ring-number tabular" id="s-timer-number">4</span>
+          </div>
+        </div>
         <button id="btn-next" class="btn btn-ghost">Siguiente pregunta ahora</button>
-        <p class="auto-advance-hint">Pasa sola en unos segundos — no hace falta tocar nada</p>
       </section>
 
       <!-- ===== FINAL ===== -->
