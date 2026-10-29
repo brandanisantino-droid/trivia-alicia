@@ -11,7 +11,7 @@ module.exports = [
   },
   {
     text: "El segundo nombre de Alicia es:",
-    options: ["Magdalena", "Marta", "Martha", "Mirta"],
+    options: ["Magdalena", "María", "Martha", "Mirta"],
     correctIndex: 2,
   },
   {
