@@ -254,6 +254,32 @@ input {
   opacity: 1;
 }
 
+/* ---------- Pantalla completa ---------- */
+
+.fullscreen-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 200;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream-deep);
+  color: var(--wine);
+  border: 1px solid var(--cream-line);
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, transform 0.12s ease;
+}
+.fullscreen-toggle:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
 /* ---------- Confeti ---------- */
 
 #confetti-canvas {

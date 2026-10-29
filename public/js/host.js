@@ -12,6 +12,17 @@ function showView(name) {
   Object.entries(views).forEach(([key, el]) => (el.hidden = key !== name));
 }
 
+// ---------- Pantalla completa ----------
+
+const fsBtn = document.getElementById("btn-fullscreen");
+fsBtn.addEventListener("click", () => {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+  else document.exitFullscreen();
+});
+document.addEventListener("fullscreenchange", () => {
+  fsBtn.textContent = document.fullscreenElement ? "⤢" : "⛶";
+});
+
 // ---------- Lobby ----------
 
 fetch("/api/info")
@@ -43,7 +54,11 @@ socket.on("lobby:players", (players) => {
   document.getElementById("btn-start").disabled = players.filter((p) => p.connected).length === 0;
 });
 
-document.getElementById("btn-start").addEventListener("click", () => socket.emit("host:start"));
+document.getElementById("btn-start").addEventListener("click", () => {
+  window.AliciaSounds && window.AliciaSounds.unlock();
+  window.AliciaSounds && window.AliciaSounds.gameStart();
+  socket.emit("host:start");
+});
 document.getElementById("btn-restart").addEventListener("click", () => socket.emit("host:restart"));
 // Ambos botones son "saltar": el juego avanza solo, esto solo lo acelera.
 document.getElementById("btn-show-standings").addEventListener("click", () => socket.emit("host:next"));
@@ -163,6 +178,7 @@ socket.on("game:answerProgress", ({ answeredCount, totalPlayers }) => {
 
 socket.on("game:reveal", (data) => {
   cancelAnimationFrame(timerRaf);
+  window.AliciaSounds && window.AliciaSounds.reveal();
   showView("reveal");
   document.getElementById("r-text").textContent = document.getElementById("q-text").textContent;
 
@@ -198,6 +214,7 @@ socket.on("game:reveal", (data) => {
 
 socket.on("game:revealWords", (data) => {
   cancelAnimationFrame(timerRaf);
+  window.AliciaSounds && window.AliciaSounds.reveal();
   showView("reveal");
   document.getElementById("r-text").textContent = document.getElementById("q-text").textContent;
 
@@ -228,6 +245,7 @@ socket.on("game:revealWords", (data) => {
 // ---------- Final ----------
 
 socket.on("game:over", ({ leaderboard }) => {
+  window.AliciaSounds && window.AliciaSounds.finale();
   showView("final");
   const podium = document.getElementById("podium");
   const order = [1, 0, 2]; // 2do, 1ro, 3ro para el efecto de podio
