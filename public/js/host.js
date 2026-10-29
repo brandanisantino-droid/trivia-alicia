@@ -77,7 +77,6 @@ const STANDINGS_TOP_N = 7;
 
 socket.on("game:showStandings", (data) => {
   showView("standings");
-  document.getElementById("standings-progress").textContent = `Después de la pregunta ${data.index + 1} de ${data.total}`;
   renderRanking(document.getElementById("standings-ranking"), data.leaderboard, { limit: STANDINGS_TOP_N });
   setNextButtonLabel(data.index, data.total);
   tickMiniTimer(document.getElementById("s-timer-fill"), document.getElementById("s-timer-number"), data.standingsAt, data.standingsDuration);
@@ -88,7 +87,6 @@ socket.on("game:showStandings", (data) => {
 let timerRaf = null;
 let miniTimerRaf = null;
 const MINI_RING_CIRCUMFERENCE = 163.4;
-const BIG_RING_CIRCUMFERENCE = 339.3;
 
 function tickMiniTimer(fillEl, numberEl, startAt, duration, circumference = MINI_RING_CIRCUMFERENCE) {
   cancelAnimationFrame(miniTimerRaf);
@@ -132,7 +130,6 @@ socket.on("game:question", (q) => {
   cancelAnimationFrame(timerRaf);
   cancelAnimationFrame(miniTimerRaf);
   showView("question");
-  document.getElementById("q-progress").textContent = `Pregunta ${q.index + 1} de ${q.total}`;
   document.getElementById("q-text").textContent = q.text;
   document.getElementById("q-answered").textContent = "0 respondieron";
 
@@ -142,7 +139,7 @@ socket.on("game:question", (q) => {
   document.getElementById("q-multi-hint").hidden = q.type !== "multi";
   if (!isWord) renderOptionsStatic(document.getElementById("q-options"), q.options);
 
-  const RING_CIRCUMFERENCE = 339.3;
+  const RING_CIRCUMFERENCE = MINI_RING_CIRCUMFERENCE;
   const ringFill = document.getElementById("q-timer-fill");
   const ringNumber = document.getElementById("q-timer-number");
 
@@ -167,7 +164,6 @@ socket.on("game:answerProgress", ({ answeredCount, totalPlayers }) => {
 socket.on("game:reveal", (data) => {
   cancelAnimationFrame(timerRaf);
   showView("reveal");
-  document.getElementById("r-progress").textContent = `Pregunta ${data.index + 1} de ${data.total}`;
   document.getElementById("r-text").textContent = document.getElementById("q-text").textContent;
 
   document.getElementById("r-options").hidden = false;
@@ -197,13 +193,12 @@ socket.on("game:reveal", (data) => {
     note.hidden = true;
   }
 
-  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration, BIG_RING_CIRCUMFERENCE);
+  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration);
 });
 
 socket.on("game:revealWords", (data) => {
   cancelAnimationFrame(timerRaf);
   showView("reveal");
-  document.getElementById("r-progress").textContent = `Pregunta ${data.index + 1} de ${data.total}`;
   document.getElementById("r-text").textContent = document.getElementById("q-text").textContent;
 
   document.getElementById("r-options").hidden = true;
@@ -227,7 +222,7 @@ socket.on("game:revealWords", (data) => {
     ranking.innerHTML = '<p class="pending-note">Nadie llegó a escribir una palabra.</p>';
   }
 
-  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration, BIG_RING_CIRCUMFERENCE);
+  tickMiniTimer(document.getElementById("r-timer-fill"), document.getElementById("r-timer-number"), data.revealAt, data.revealDuration);
 });
 
 // ---------- Final ----------

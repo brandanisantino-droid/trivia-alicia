@@ -48,15 +48,16 @@
       <!-- ===== PREGUNTA ===== -->
       <section id="view-question" class="view" hidden>
         <div class="q-topbar">
-          <span class="chip tabular" id="q-progress">Pregunta 1 de 20</span>
-          <span class="chip tabular" id="q-answered">0 / 0 respondieron</span>
-        </div>
-        <div class="timer-ring-wrap">
-          <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true">
-            <circle class="timer-ring-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="timer-ring-fill" id="q-timer-fill" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <span class="timer-ring-number tabular" id="q-timer-number">10</span>
+          <div class="q-topbar-right">
+            <span class="chip tabular" id="q-answered">0 / 0 respondieron</span>
+            <div class="mini-timer-ring-wrap">
+              <svg class="mini-timer-ring" viewBox="0 0 60 60" aria-hidden="true">
+                <circle class="mini-timer-ring-bg" cx="30" cy="30" r="26"></circle>
+                <circle class="mini-timer-ring-fill" id="q-timer-fill" cx="30" cy="30" r="26"></circle>
+              </svg>
+              <span class="mini-timer-ring-number tabular" id="q-timer-number">10</span>
+            </div>
+          </div>
         </div>
         <h2 class="q-text" id="q-text">—</h2>
         <p id="q-multi-hint" class="eyebrow" hidden>✅ Se puede elegir más de una opción</p>
@@ -70,15 +71,13 @@
       <!-- ===== REVELACIÓN ===== -->
       <section id="view-reveal" class="view" hidden>
         <div class="q-topbar">
-          <span class="chip tabular" id="r-progress">Pregunta 1 de 20</span>
-          <span class="chip tabular">Sigue en…</span>
-        </div>
-        <div class="timer-ring-wrap">
-          <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true">
-            <circle class="timer-ring-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="timer-ring-fill" id="r-timer-fill" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <span class="timer-ring-number tabular" id="r-timer-number">4</span>
+          <div class="mini-timer-ring-wrap">
+            <svg class="mini-timer-ring" viewBox="0 0 60 60" aria-hidden="true">
+              <circle class="mini-timer-ring-bg" cx="30" cy="30" r="26"></circle>
+              <circle class="mini-timer-ring-fill" id="r-timer-fill" cx="30" cy="30" r="26"></circle>
+            </svg>
+            <span class="mini-timer-ring-number tabular" id="r-timer-number">4</span>
+          </div>
         </div>
         <h2 class="q-text" id="r-text">—</h2>
         <div class="option-grid cols-4" id="r-options"></div>
@@ -91,8 +90,8 @@
 
       <!-- ===== RANKING ENTRE PREGUNTAS ===== -->
       <section id="view-standings" class="view" hidden>
-        <p class="eyebrow" id="standings-progress">Después de la pregunta 1 de 20</p>
-        <h1 class="final-title">¿Cómo va la cosa?</h1>
+        <p class="eyebrow">¿Cómo va la cosa?</p>
+        <h1 class="final-title">Ranking</h1>
         <div class="full-ranking standings-ranking" id="standings-ranking"></div>
         <div class="mini-timer">
           <span class="mini-timer-label">Siguiente pregunta en</span>

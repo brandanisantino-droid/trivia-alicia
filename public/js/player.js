@@ -184,7 +184,6 @@ socket.on("game:question", (q) => {
   answeredThisRound = false;
   gotPersonalResult = false;
   showView("question");
-  document.getElementById("q-progress").textContent = `${q.index + 1} / ${q.total}`;
   document.getElementById("q-text").textContent = q.text;
   document.getElementById("q-waiting-note").hidden = true;
 
