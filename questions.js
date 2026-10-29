@@ -25,10 +25,9 @@ module.exports = [
     correctIndex: 0,
   },
   {
-    // TODO: falta marcar cuál es la correcta.
     text: "Alicia tiene una virtud especial:",
     options: ["Es muy generosa", "Es muy afectuosa", "Es muy simpática", "Es muy extrovertida"],
-    correctIndex: null,
+    correctIndex: 0,
   },
   {
     text: "Alicia tuvo un accidente en la vía pública. ¿Dónde?",
@@ -138,33 +137,28 @@ module.exports = [
     correctIndex: 3,
   },
   {
-    // TODO: falta marcar cuál es la correcta.
     text: "Alicia siempre deja los platos sucios para lavar al otro día",
     options: ["Verdadero", "Falso"],
-    correctIndex: null,
+    correctIndex: 1,
   },
   {
-    // TODO: falta marcar cuál es la correcta.
-    text: "Según Alicia, ¿qué tía/tío fue la más estricta y autoritaria?",
+    text: "Según Alicia, ¿qué tía fue la más estricta y autoritaria?",
     options: ["Elina", "Martita", "Lili"],
-    correctIndex: null,
+    correctIndex: 0,
   },
   {
-    // TODO: falta marcar cuál es la correcta.
     text: "¿Cuál es la actividad oculta de Alicia?",
     options: ["Manejar", "Cazar perdices", "Andar en bicicleta", "Coleccionar estampillas"],
-    correctIndex: null,
+    correctIndex: 1,
   },
   {
-    // TODO: falta marcar cuál es la correcta.
     text: "Alicia se lesionó el hombro...",
     options: ["Subiendo las escaleras", "Limpiando una ventana", "Bajando del colectivo", "Cargando las bolsas del mercado"],
-    correctIndex: null,
+    correctIndex: 1,
   },
   {
-    // TODO: falta marcar cuál es la correcta.
     text: "¿Cuál de las hijas no heredó el gusto por el orden y la limpieza?",
     options: ["Lucrecia", "Marcela", "Ana"],
-    correctIndex: null,
+    correctIndex: 1,
   },
 ];
