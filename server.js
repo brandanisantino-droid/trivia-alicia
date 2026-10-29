@@ -247,9 +247,22 @@ function revealQuestion() {
   scheduleStandings();
 }
 
+const STANDINGS_EVERY_N = 5; // el ranking entre preguntas se muestra cada N preguntas
+
+function isCheckpointIndex(index) {
+  return (index + 1) % STANDINGS_EVERY_N === 0;
+}
+
 function scheduleStandings() {
   clearTimeout(state.timer);
-  state.timer = setTimeout(() => showStandings(), REVEAL_PAUSE_MS);
+  state.timer = setTimeout(() => afterReveal(), REVEAL_PAUSE_MS);
+}
+
+function afterReveal() {
+  if (state.status !== "reveal") return;
+  clearTimeout(state.timer);
+  if (isCheckpointIndex(state.currentIndex)) showStandings();
+  else goToNextQuestionOrEnd();
 }
 
 function showStandings() {
@@ -266,6 +279,10 @@ function showStandings() {
 
 function advanceQuestion() {
   if (state.status !== "standings") return;
+  goToNextQuestionOrEnd();
+}
+
+function goToNextQuestionOrEnd() {
   clearTimeout(state.timer);
   const next = state.currentIndex + 1;
   if (next >= TOTAL_QUESTIONS) endGame();
@@ -401,7 +418,7 @@ io.on("connection", (socket) => {
 
   socket.on("host:next", () => {
     // Botón de "saltar": adelanta ya mismo la fase automática en curso.
-    if (state.status === "reveal") showStandings();
+    if (state.status === "reveal") afterReveal();
     else if (state.status === "standings") advanceQuestion();
   });
 
