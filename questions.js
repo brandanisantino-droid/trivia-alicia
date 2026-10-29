@@ -54,7 +54,7 @@ module.exports = [
     options: [
       "Hace costura",
       "Hace curaciones",
-      "Da inyecciones",
+      "Dar inyecciones",
       "Corta las uñas de manos y pies",
       "Te resuelve una comida en dos instantes",
       "Todas son correctas",
