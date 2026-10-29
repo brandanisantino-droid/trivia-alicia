@@ -11,23 +11,24 @@ module.exports = [
   },
   {
     text: "El segundo nombre de Alicia es:",
-    options: ["Margdalena", "Marta", "Martha", "Mirta"],
-    correctIndex: 1,
+    options: ["Magdalena", "Marta", "Martha", "Mirta"],
+    correctIndex: 2,
   },
   {
-    text: "¿Dónde pasó las vacaciones en las que pedía desaparecer de ahí?",
+    text: "Durante su infancia, ¿dónde pasó una de las peores vacaciones de su vida?",
     options: ["Villaguay, Entre Ríos", "Carlos Paz, Córdoba", "Azul, Pcia de Buenos Aires", "Río de Janeiro, Brasil"],
     correctIndex: 0,
   },
   {
     text: "¿Qué disfruta más?",
-    options: ["Viajar", "Reunirse con familia", "Ir de shopping", "Limpiar y ordenar"],
-    correctIndex: 1,
+    options: ["Reunirse con familia", "Ir de shopping", "Limpiar y ordenar", "Ir a la peluquería"],
+    correctIndex: 0,
   },
   {
-    text: "Alicia es muy desordenada y desorganizada",
-    options: ["Verdadero", "Falso"],
-    correctIndex: 0,
+    // TODO: falta marcar cuál es la correcta.
+    text: "Alicia tiene una virtud especial:",
+    options: ["Es muy generosa", "Es muy afectuosa", "Es muy simpática", "Es muy extrovertida"],
+    correctIndex: null,
   },
   {
     text: "Alicia tuvo un accidente en la vía pública. ¿Dónde?",
@@ -102,7 +103,7 @@ module.exports = [
     correctIndex: 1,
   },
   {
-    text: "¿Alicia fue abuela a los 62?",
+    text: "¿Alicia fue abuela por primera vez a los 62?",
     options: ["Verdadero", "Falso"],
     correctIndex: 1,
   },
@@ -135,5 +136,35 @@ module.exports = [
     text: "Los helados son la debilidad de Alicia, ¿cuál es su gusto preferido?",
     options: ["Dulce de leche", "Crema del cielo", "Menta granizada", "Sambayón"],
     correctIndex: 3,
+  },
+  {
+    // TODO: falta marcar cuál es la correcta.
+    text: "Alicia siempre deja los platos sucios para lavar al otro día",
+    options: ["Verdadero", "Falso"],
+    correctIndex: null,
+  },
+  {
+    // TODO: falta marcar cuál es la correcta.
+    text: "Según Alicia, ¿qué tía/tío fue la más estricta y autoritaria?",
+    options: ["Elina", "Martita", "Lili"],
+    correctIndex: null,
+  },
+  {
+    // TODO: falta marcar cuál es la correcta.
+    text: "¿Cuál es la actividad oculta de Alicia?",
+    options: ["Manejar", "Cazar perdices", "Andar en bicicleta", "Coleccionar estampillas"],
+    correctIndex: null,
+  },
+  {
+    // TODO: falta marcar cuál es la correcta.
+    text: "Alicia se lesionó el hombro...",
+    options: ["Subiendo las escaleras", "Limpiando una ventana", "Bajando del colectivo", "Cargando las bolsas del mercado"],
+    correctIndex: null,
+  },
+  {
+    // TODO: falta marcar cuál es la correcta.
+    text: "¿Cuál de las hijas no heredó el gusto por el orden y la limpieza?",
+    options: ["Lucrecia", "Marcela", "Ana"],
+    correctIndex: null,
   },
 ];
