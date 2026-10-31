@@ -49,6 +49,9 @@
 [hidden] {
   display: none !important;
 }
+html {
+  font-size: 19px;
+}
 html,
 body {
   margin: 0;
