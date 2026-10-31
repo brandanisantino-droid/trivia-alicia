@@ -61,7 +61,6 @@ document.getElementById("join-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.getElementById("name-input").value.trim();
   if (!name) return;
-  window.AliciaSounds && window.AliciaSounds.unlock();
   join(name, existing ? existing.id : null);
 });
 
@@ -86,7 +85,6 @@ function renderOptions(options) {
     btn.addEventListener("click", () => {
       if (answeredThisRound) return;
       answeredThisRound = true;
-      window.AliciaSounds && window.AliciaSounds.unlock();
       socket.emit("player:answer", { optionIndex: i });
       lockOptions(i);
     });
@@ -243,11 +241,6 @@ socket.on("game:yourResult", (r) => {
   cancelAnimationFrame(timerRaf);
   myScore = r.totalScore;
 
-  if (window.AliciaSounds && !r.pending) {
-    if (r.answered && r.correct) window.AliciaSounds.correct();
-    else window.AliciaSounds.wrong();
-  }
-
   const grid = document.getElementById("q-options");
   const canColor = !views.question.hidden && !grid.hidden && !r.pending;
   if (canColor) {
@@ -303,7 +296,6 @@ socket.on("game:revealWords", () => {
 // ---------- Final ----------
 
 socket.on("game:over", ({ leaderboard }) => {
-  window.AliciaSounds && window.AliciaSounds.finale();
   showView("final");
   const myIndex = leaderboard.findIndex((p) => p.id === myPlayerId);
   const place = myIndex >= 0 ? myIndex + 1 : null;
