@@ -136,6 +136,13 @@ body {
   border-radius: var(--radius-sm);
   margin: 4px 0;
 }
+.step-card-join {
+  max-width: 310px;
+}
+.step-card-join img {
+  width: 210px;
+  height: 210px;
+}
 .step-detail {
   font-size: 0.85rem;
   color: var(--ink-soft);
