@@ -41,7 +41,7 @@ module.exports = [
   },
   {
     text: "¿Qué país aún no conoce?",
-    options: ["Turquía", "Londres", "Panamá", "México"],
+    options: ["Turquía", "Inglaterra", "Panamá", "México"],
     correctIndex: 3,
   },
   {
