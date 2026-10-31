@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const WIFI_SSID = "CasaMeraki2";
 const WIFI_PASSWORD = "thames1951";
 
-const TIME_PER_QUESTION_MS = 15000; // 15 segundos por pregunta de opción múltiple
+const TIME_PER_QUESTION_MS = 12000; // 12 segundos por pregunta de opción múltiple
 const WORD_ROUND_DURATION_MS = 30000; // más tiempo para escribir una palabra
 const MULTI_ROUND_DURATION_MS = 20000; // más tiempo para elegir varias opciones
 const REVEAL_PAUSE_MS = 4000; // cuánto se muestra la respuesta correcta antes de pasar al ranking
